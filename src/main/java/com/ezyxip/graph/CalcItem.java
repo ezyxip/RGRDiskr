@@ -3,7 +3,8 @@ package com.ezyxip.graph;
 import com.ezyxip.graph.menu.MenuItem;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -32,8 +33,15 @@ public class CalcItem extends MenuItem {
                 }
             }
             Algorithm algorithm = new Algorithm(matrix);
-            System.out.println(algorithm.getDiameter());
-        } catch (FileNotFoundException e) {
+            int res = algorithm.getDiameter();
+            if(!output.exists()) {
+                boolean isCreate = output.createNewFile();
+                if(!isCreate) throw new RuntimeException("Не удаётся создать файл для записи ответа");
+            }
+            try(FileWriter writer = new FileWriter(output)){
+                writer.write(String.valueOf(res));
+            }
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }

@@ -16,6 +16,10 @@ public class Algorithm {
             dists.add(Arrays.stream(dijkstra(i)).boxed().toArray(Integer[]::new));
         }
         return dists.stream()
+                .map(e -> Arrays.stream(e)
+                        .filter(e1 -> e1 != Integer.MAX_VALUE)
+                        .toArray(Integer[]::new)
+                )
                 .map(e -> Arrays.stream(e).max(Integer::compareTo))
                 .map(Optional::orElseThrow)
                 .max(Integer::compareTo)

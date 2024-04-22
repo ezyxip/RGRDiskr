@@ -36,7 +36,7 @@ public class ConsoleMenu{
                 try{
                     items.get(command).run();
                 } catch (Exception e){
-                    System.out.printf("Error! - [%s]\n", e.getMessage());
+                    System.out.printf("Error! - [%s]\n", e);
                 }
             } else {
                 System.out.println("Command not found");
