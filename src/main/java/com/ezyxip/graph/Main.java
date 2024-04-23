@@ -20,8 +20,8 @@ public class Main {
         System.out.println("Введите help для получения справки");
         ConsoleMenu menu = new ConsoleMenu("graph::>");
         menu.add("author", new MenuItem("Об авторе", ()->
-                System.out.println("Ето Йа"))
-        );
+                System.out.println("Anton Zejdler, FIT-231")
+        ));
         menu.add("about", new AboutItem());
         menu.add("input", new InputItem(context));
         menu.add("output", new OutputItem(context));

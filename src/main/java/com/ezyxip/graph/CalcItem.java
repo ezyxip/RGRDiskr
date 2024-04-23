@@ -34,12 +34,14 @@ public class CalcItem extends MenuItem {
             }
             Algorithm algorithm = new Algorithm(matrix);
             int res = algorithm.getDiameter();
+            System.out.printf("Ответ - %d\n", res);
             if(!output.exists()) {
                 boolean isCreate = output.createNewFile();
                 if(!isCreate) throw new RuntimeException("Не удаётся создать файл для записи ответа");
             }
             try(FileWriter writer = new FileWriter(output)){
                 writer.write(String.valueOf(res));
+                System.out.println("Ответ записан в файл");
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

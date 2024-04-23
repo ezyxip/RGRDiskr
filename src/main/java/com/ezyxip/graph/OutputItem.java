@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class OutputItem  extends MenuItem {
     HashMap<String, Object> context;
     public OutputItem(HashMap<String, Object> context){
-        super("Установка выходного файла (по умолчанию output.txt");
+        super("Установка выходного файла (по умолчанию output.txt)");
         this.context = context;
         addJob(this::exec);
     }
